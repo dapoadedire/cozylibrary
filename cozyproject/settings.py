@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY", default = '^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*jdwu)r$0hd0#c%m')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default = True)
+DEBUG = config('DEBUG', default = True,  cast = bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -152,3 +152,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "book:home"
 LOGOUT_REDIRECT_URL = "book:home"
+
+
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+# EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', default=10, cast=int)
