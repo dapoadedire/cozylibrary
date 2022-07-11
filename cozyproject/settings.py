@@ -10,10 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = config("SECRET_KEY", default = '^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*jdwu)r$0hd0#c%m')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default = True)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "ckeditor",
     'accounts',
+    'django_extensions'
     
 ]
 
