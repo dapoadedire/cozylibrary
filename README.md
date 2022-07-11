@@ -13,7 +13,7 @@ Cozy Library is a web app that allows users to download books of different genre
 Clone the project
 
 ```
-  git clone https://link-to-project
+  git clone https://github.com/dapoadedire/cozylibrary.git
 ```
 
 Go to the project directory
