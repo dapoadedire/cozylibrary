@@ -49,11 +49,19 @@ Finally, Start The Server.
 python manage.py runserver
 ```
 
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
 
 
 ## Support
 
-For support, email adedireadedapo19@gmail.com or send a Twitter DM @ twitter.com/dapo_adedire
+For support, email adedireadedapo19@gmail.com or send a Twitter DM @ twitter.com/dapo_adedire.
+Also, this project needs a star from you.
 
 
 ## Tech Stack
