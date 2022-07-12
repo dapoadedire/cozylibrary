@@ -8,6 +8,22 @@ Cozy Library is a web app that allows users to download books of different genre
 - [@dapo_adedire](https://www.twitter.com/dapo_adedire)
 
 
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`SECRET_KEY`
+`DEBUG`
+
+`EMAIL_BACKEND`
+`EMAIL_HOST_USER`
+`EMAIL_HOST`
+`EMAIL_PORT`
+`EMAIL_HOST_PASSWORD= ''  # TODO: Give APP Password here`
+`EMAIL_USE_TLS`
+`EMAIL_TIMEOUT`
+
 ## Run Locally
 
 Clone the project
