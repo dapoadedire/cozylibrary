@@ -8,6 +8,22 @@ Cozy Library is a web app that allows users to download books of different genre
 - [@dapo_adedire](https://www.twitter.com/dapo_adedire)
 
 
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`SECRET_KEY`
+`DEBUG`
+
+`EMAIL_BACKEND`
+`EMAIL_HOST_USER`
+`EMAIL_HOST`
+`EMAIL_PORT`
+`EMAIL_HOST_PASSWORD= ''  # TODO: Give APP Password here`
+`EMAIL_USE_TLS`
+`EMAIL_TIMEOUT`
+
 ## Run Locally
 
 Clone the project
@@ -49,11 +65,19 @@ Finally, Start The Server.
 python manage.py runserver
 ```
 
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
 
 
 ## Support
 
-For support, email adedireadedapo19@gmail.com or send a Twitter DM @ twitter.com/dapo_adedire
+For support, email adedireadedapo19@gmail.com or send a Twitter DM @ twitter.com/dapo_adedire.
+Also, this project needs a star from you.
 
 
 ## Tech Stack
