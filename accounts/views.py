@@ -1,9 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views import generic
+from .forms import UserRegisterForm
+from django.views.generic.edit import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
 
-
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    template_name = "registration/signup.html"
-    success_url = reverse_lazy("login")
+class SignUpView(SuccessMessageMixin, CreateView):
+  template_name = 'registration/signup.html'
+  success_url = reverse_lazy('login')
+  form_class = UserRegisterForm
+  success_message = "Your profile was created successfully"
