@@ -131,6 +131,7 @@ Please adhere to this project's `code of conduct`.
 ![image](https://user-images.githubusercontent.com/95668340/179268538-24d53bf5-f348-40b0-b3a0-5ae015a86a58.png)
 
 ### Password Reset Email
+![image](https://user-images.githubusercontent.com/95668340/179269045-696042f6-4d8b-4869-86ea-ca2d6fc9c987.png)
 
 ### Password Change
 ![image](https://user-images.githubusercontent.com/95668340/179268618-03437619-3716-4c50-83b4-3fcfeeb3f310.png)
