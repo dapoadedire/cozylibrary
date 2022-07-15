@@ -28,12 +28,12 @@ class Book(models.Model):
         ('programming', "Programming"),
         ('history', "History"),
         ("other", "Other"),
+        ('fiction,', "Fiction")
     )
     STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
     title = models.CharField(max_length=255, default="Dapo Adedire")
     author = models.CharField(max_length=255, default="Dapo Adedire")
     genre = models.CharField(max_length=15, choices=GENRE_CHOICES, default="other")
-    pages = models.IntegerField(default=0)
     year = models.IntegerField(default=0)
     language = models.CharField(max_length=255, default="English")
     description = RichTextField(max_length=1000, blank=True)
