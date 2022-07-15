@@ -17,13 +17,20 @@ To run this project, you will need to add the following environment variables to
 `DEBUG`
 
 `EMAIL_BACKEND`
+
 `EMAIL_HOST_USER`
+
 `EMAIL_HOST`
+
 `EMAIL_PORT`
+
 `EMAIL_HOST_PASSWORD= ''  # TODO: Give APP Password here`
+
 `EMAIL_USE_TLS`
+
 `EMAIL_TIMEOUT`
 
+Check [THIS](https://stackoverflow.com/a/62929967/16006603) out if you're unsure of how to set it up. 
 ## Run Locally
 
 Clone the project
