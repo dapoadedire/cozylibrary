@@ -5,10 +5,15 @@ Cozy Library is a web app that allows users to download books of different genre
 ## Features:
 
 Download books.
+
 Option to view books in category.
+
 Search option.
+
 Sign Up.
+
 Sign In and Sign Out.
+
 Reset and change password options
 
 
@@ -23,6 +28,7 @@ Reset and change password options
 To run this project, you will need to add the following environment variables to your .env file
 
 `SECRET_KEY`
+
 `DEBUG`
 
 `EMAIL_BACKEND`
