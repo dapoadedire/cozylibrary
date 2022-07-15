@@ -112,13 +112,31 @@ Please adhere to this project's `code of conduct`.
 ## Screenshots
 
 
-### Homepage with demo cover images.
-![image](https://user-images.githubusercontent.com/95668340/169707970-43dca465-a8bb-4177-bd1c-89a09a8fd5c8.png)
+### Home
+![image](https://user-images.githubusercontent.com/95668340/179268244-7fe50097-be94-4ee0-a1b2-c5f2fcc64381.png)
 
-### About page
 
-![image](https://user-images.githubusercontent.com/95668340/169708045-df6fe003-b22b-41b9-a406-2f0db4df796f.png)
+### Sign Up Page
+![image](https://user-images.githubusercontent.com/95668340/179268327-8a1994d1-4e0e-47bb-a9e3-21f315d3fe9c.png)
 
+
+### Sign In Page
+![image](https://user-images.githubusercontent.com/95668340/179268179-94f89a5f-6d17-4b55-a309-64a8d92c9c3c.png)
+
+### User Profile
+![image](https://user-images.githubusercontent.com/95668340/179268431-79fc1bf0-0d98-44f9-a6c5-fee155b3f53e.png)
+
+### Password Reset
+
+![image](https://user-images.githubusercontent.com/95668340/179268538-24d53bf5-f348-40b0-b3a0-5ae015a86a58.png)
+
+### Password Reset Email
+
+### Password Change
+![image](https://user-images.githubusercontent.com/95668340/179268618-03437619-3716-4c50-83b4-3fcfeeb3f310.png)
+
+### Search Results
+![image](https://user-images.githubusercontent.com/95668340/179268834-adbba7dd-d8f0-4177-98e6-a675d8665c42.png)
 
 ### Profile Page
 
