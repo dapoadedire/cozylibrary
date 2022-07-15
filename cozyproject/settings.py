@@ -154,17 +154,23 @@ LOGIN_REDIRECT_URL = "book:home"
 LOGOUT_REDIRECT_URL = "book:home"
 
 
+# Use one of the following to configure the email backend.
 
 
+#1
 
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
-EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
+#2
+
+# EMAIL_BACKEND = config('EMAIL_BACKEND')
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+# EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
 
 
 
