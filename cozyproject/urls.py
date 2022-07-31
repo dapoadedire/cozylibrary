@@ -14,18 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.conf import settings
-from django.conf.urls.static import static
+
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("cozylibrary.urls")),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),  # for login/logout
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 handler404 = 'cozylibrary.views.custom_page_not_found_view'
 handler500 = 'cozylibrary.views.custom_error_view'
 handler403 = 'cozylibrary.views.custom_permission_denied_view'
