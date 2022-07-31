@@ -155,20 +155,20 @@ LOGOUT_REDIRECT_URL = "book:home"
 
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+EMAIL_BACKEND = config('EMAIL_BACKEND', default = '-')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER' , default = '-')
+EMAIL_HOST = config('EMAIL_HOST' , default = '-')
+EMAIL_PORT = config('EMAIL_PORT' , default = '-')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD' , default = '-')  # TODO: Give APP Password here
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default = '-', cast=bool)
 
 
 
 cloudinary.config(
-cloud_name= config('CLOUD_NAME'),
-api_key= config('API_KEY'),
-api_secret= config('API_SECRET'),
+cloud_name= config('CLOUD_NAME',  default = '-'),
+api_key= config('API_KEY', default = '-'),
+api_secret= config('API_SECRET', default = '-'),
 )
 
 
