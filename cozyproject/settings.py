@@ -154,20 +154,15 @@ LOGOUT_REDIRECT_URL = "book:home"
 # Use one of the following to configure the email backend.
 
 
-#1
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
-#2
-
-# EMAIL_BACKEND = config('EMAIL_BACKEND')
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST = config('EMAIL_HOST')
-# EMAIL_PORT = config('EMAIL_PORT')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # TODO: Give APP Password here
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-
-# EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
 
 
 cloudinary.config(
@@ -175,6 +170,19 @@ cloud_name= config('CLOUD_NAME'),
 api_key= config('API_KEY'),
 api_secret= config('API_SECRET'),
 )
+
+
+if DEBUG == False:
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
