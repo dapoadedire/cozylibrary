@@ -3,6 +3,7 @@ from django.utils.timezone import datetime
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
+from cloudinary.models import CloudinaryField
 
 # Create your models here
 
@@ -37,10 +38,10 @@ class Book(models.Model):
     year = models.IntegerField(default=0)
     language = models.CharField(max_length=255, default="English")
     description = RichTextField(max_length=1000, blank=True)
-    cover_image = models.ImageField(upload_to="covers/", blank=False)
-    created_at = models.DateTimeField(default=datetime.now)
+    cover_image = CloudinaryField('cover_image', blank=False, resource_type='image')
+    created_at = models.DateTimeField(default=datetime.now, editable=False)
     views = models.IntegerField(default=0)
-    book = models.FileField(upload_to="books/", blank=False)
+    book =CloudinaryField('book', blank=False, resource_type='auto')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
     slug = models.SlugField(max_length=50, unique=True, editable=False)
 

@@ -13,6 +13,10 @@ import os
 from pathlib import Path
 from decouple import config
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,7 +48,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "ckeditor",
     'accounts',
-    'django_extensions'
+    'django_extensions',
+    'cloudinary',
     
 ]
 
@@ -142,8 +147,7 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -173,7 +177,11 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
 
 
-
+cloudinary.config(
+cloud_name= config('CLOUD_NAME'),
+api_key= config('API_KEY'),
+api_secret= config('API_SECRET'),
+)
 
 
 
