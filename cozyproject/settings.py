@@ -91,11 +91,16 @@ WSGI_APPLICATION = "cozyproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'cozyproject',
+       'USER': 'postgres',
+       'PASSWORD': config('DATABASE_PASSWORD'),
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
 }
 
 
@@ -154,23 +159,16 @@ LOGOUT_REDIRECT_URL = "book:home"
 # Use one of the following to configure the email backend.
 
 
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '7e8acaf7e4341b'
+EMAIL_HOST_PASSWORD = '8c5b590c311e0c'
+EMAIL_PORT = '2525'
 
-
-EMAIL_BACKEND = config('EMAIL_BACKEND', default = '-')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER' , default = '-')
-EMAIL_HOST = config('EMAIL_HOST' , default = '-')
-EMAIL_PORT = config('EMAIL_PORT' , default = '-')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD' , default = '-')  # TODO: Give APP Password here
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default = True, cast=bool)
-
-
-
-cloudinary.config(
-cloud_name= config('CLOUD_NAME',  default = '-'),
-api_key= config('API_KEY', default = '-'),
-api_secret= config('API_SECRET', default = '-'),
+cloudinary.config( 
+  cloud_name =config('CLOUD_NAME'), 
+  api_key = config('API_KEY'), 
+  api_secret =  config('API_SECRET'),
 )
-
 
 if DEBUG == False:
     SECURE_BROWSER_XSS_FILTER = True
@@ -183,6 +181,17 @@ if DEBUG == False:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+    }
+    }
+    import dj_database_url
+    db_from_env = dj_database_url.config(conn_max_age=600)
+    DATABASES['default'].update(db_from_env)
+
 
 
 
