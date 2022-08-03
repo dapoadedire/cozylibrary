@@ -93,14 +93,10 @@ WSGI_APPLICATION = "cozyproject.wsgi.application"
 
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'cozyproject',
-       'USER': 'postgres',
-       'PASSWORD': config('DATABASE_PASSWORD'),
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
