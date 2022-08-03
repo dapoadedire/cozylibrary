@@ -94,16 +94,17 @@ WSGI_APPLICATION = "cozyproject.wsgi.application"
 
 DATABASES = {
    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'd9960hda8p9418',
-       'USER': 'mxgiqufgdegeki',
-       'PASSWORD': '2080af0e134385afcb4cd18f81ef67e64934bd276345797b274eb68447387ffc',
-       'HOST': 'ec2-107-22-122-106.compute-1.amazonaws.com',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'cozyproject',
+       'USER': 'postgres',
+       'PASSWORD': config('DATABASE_PASSWORD'),
+       'HOST': 'localhost',
        'PORT': '5432',
    }
 }
-
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
