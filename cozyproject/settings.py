@@ -30,7 +30,7 @@ SECRET_KEY = config("SECRET_KEY", default = '^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default = True,  cast = bool)
 
-ALLOWED_HOSTS = ['localhost', '*.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'cozylibrary.herokuapp.com']
 
 
 # Application definition
