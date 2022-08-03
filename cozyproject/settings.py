@@ -102,7 +102,9 @@ DATABASES = {
        'PORT': '5432',
    }
 }
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -169,18 +171,6 @@ cloudinary.config(
   api_key = config('API_KEY'), 
   api_secret =  config('API_SECRET'),
 )
-
-if DEBUG == False:
-   
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-    }
-    }
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=600)
-    DATABASES['default'].update(db_from_env)
-
 
 
 
