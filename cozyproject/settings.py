@@ -98,9 +98,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -157,10 +154,6 @@ LOGOUT_REDIRECT_URL = "book:home"
 # Use one of the following to configure the email backend.
 
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '7e8acaf7e4341b'
-EMAIL_HOST_PASSWORD = '8c5b590c311e0c'
-EMAIL_PORT = '2525'
 
 cloudinary.config( 
   cloud_name =config('CLOUD_NAME'), 

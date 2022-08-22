@@ -11,16 +11,14 @@ from django.db.models import Q
 from . import models
 
 
-class BookListView(LoginRequiredMixin, ListView):
+class BookListView(ListView):
     model = models.Book
     context_object_name = "books"
     template_name = "book_list.html"
-    login_url = '/accounts/login/'
-    redirect_field_name = 'book:home'
     paginate_by = 20
 
     def get_queryset(self):
-        return super().get_queryset().filter(status="published").order_by("-views")
+        return super().get_queryset().filter(status="published")
 
 
 class BookDetailView(LoginRequiredMixin, DetailView):
@@ -82,10 +80,9 @@ class BookGenreView(LoginRequiredMixin, ListView):
         return models.Book.objects.all().filter(genre__icontains=self.kwargs["genre"]).order_by("-views")
 
 
-class BookSearchView(LoginRequiredMixin, ListView):
+class BookSearchView(ListView):
     template_name = 'book_search.html'
     model = models.Book 
-    login_url = '/accounts/login/'
     def get_queryset(self):  # new
         query = self.request.GET.get("q")
         object_list = models.Book.objects.filter(
