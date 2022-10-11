@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import View
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy
 from django.db.models import Q
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import View
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.list import ListView
 
 # Create your views here.
 from . import models

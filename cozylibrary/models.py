@@ -1,9 +1,9 @@
-from django.db import models
-from django.utils.timezone import datetime
-from django.urls import reverse
 from ckeditor.fields import RichTextField
-from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
+from django.db import models
+from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.utils.timezone import datetime
 
 # Create your models here
 
