@@ -1,6 +1,6 @@
 # Cozy Library
 
-Cozy Library is a web app that allows users to download books of different genres, and allows selected users to upload books.
+Cozy Library is a web app where users can download books of different genres.
 
 ## Features:
 
