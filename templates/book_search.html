@@ -1,49 +1,62 @@
 {% extends 'base.html' %}
 
-  {% block title %}
-    <title>Search</title>
-  {% endblock title %}
+{% block title %}
+<title>Search</title>
+{% endblock title %}
 
 
-  {% block content %}
-  <div>
-   
-        <div>
-          <h2> Search results </h2>
-        </div>
-        
-            <div>
-              {% for book in object_list %}
-              {% if book %}
-              <div>
-                <a href="{{book.get_absolute_url}}">
-                <div>
-                    <img src="{{ book.cover_image.url}}">
-                    <div>
-                      <p>{{ book.title }} | {{ book.author }}</p>
-                    </div>
-                </div>
-                </a>
-              </div>
+{% block content %}
 
-              {% else %}
+<h2> Search results </h2>
 
-              <div>
-                <p> No results found </p>
-              </div>
-              {% endif %}
+{% if search_result %}
+
+<p>You searched for {{ search_query }}</p>
+{% for book in search_result %}
+<a href="{{book.get_absolute_url}}">
+
+  <img src="{{ book.cover_image.url}}">
+
+  <p>{{ book.title }} | {{ book.author }}</p>
+
+</a>
 
 
 
-              {% endfor %}
-            
-              
-             
-               
-          </div>
+{% endfor %}
+{% else %}
 
-  </div>
-  {% endblock content%}
+<p> No results found.</p>
+
+{% endif %}
+
+{% endblock content %}
 
 
-    
+
+
+{% comment %}
+
+{% if search_result %}
+
+<h2>
+
+  {% with results.count as total_results %}
+
+  Found {{ total_results }} result{{ total_results|pluralize }}
+
+  {% endwith %}
+
+</h2>
+
+{% for c in results %}
+
+
+
+{% empty %}
+
+<h3>No results found.</h3>
+
+{% endfor %}
+
+{% endif %} {% endcomment %}

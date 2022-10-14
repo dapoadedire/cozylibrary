@@ -29,13 +29,23 @@ class BookDetailView(LoginRequiredMixin, DetailView):
 
 
 class BookCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
-    model = models.Book
-    fields = "__all__"
     template_name = "book_create.html"
+    model = models.Book
+    fields = [
+        "title",
+        "author",
+        "genre",
+        "year",
+        "language",
+        "description",
+        "cover_image",
+        "book",
+    ]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super().form_valid(form)
+        form.save()
+        return super(BookCreateView, self).form_valid(form)
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -46,12 +56,23 @@ class BookCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = models.Book
-    fields = "__all__"
+    fields = [
+        "title",
+        "author",
+        "genre",
+        "year",
+        "language",
+        "description",
+        "cover_image",
+        "book",
+    ]
+
     template_name = "book_edit.html"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super().form_valid(form)
+        form.save()
+        return super(BookUpdateView, self).form_valid(form)
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -80,7 +101,6 @@ class BookGenreView(LoginRequiredMixin, ListView):
         return (
             models.Book.objects.all()
             .filter(genre__icontains=self.kwargs["genre"])
-            .order_by("-views")
         )
 
 
@@ -89,15 +109,19 @@ class BookSearchView(ListView):
     model = models.Book
 
     def get_queryset(self):  # new
-        query = self.request.GET.get("q")
-        object_list = models.Book.objects.filter(
+        query = self.request.GET.get("search_query")
+        print(query)
+        if not query:
+            query = ""
+
+        search_result = models.Book.objects.filter(
             Q(title__icontains=query)
             | Q(author__icontains=query)
             | Q(genre__icontains=query)
             | Q(description__icontains=query)
         )
-        return object_list
-
+        print(search_result)
+        return search_result 
 
 class AboutView(View):
     def get(self, request):

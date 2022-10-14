@@ -53,7 +53,7 @@
                     </ul>
                     
                     <form  method="get" action="{% url 'book:search' %}">
-                      <input type="search" placeholder="Search books ..." required >
+                      <input name="search_query" type="text" placeholder="Search books ..." required >
                       <button type="submit">Search</button>
                     </form>
                   </div>
