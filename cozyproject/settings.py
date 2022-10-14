@@ -32,7 +32,7 @@ SECRET_KEY = config(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "https://cozylibrary.onrender.com/"]
 
 
 # Application definition
@@ -162,3 +162,7 @@ cloudinary.config(
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://cozylibrary.onrender.com/"
+]
