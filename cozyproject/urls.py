@@ -25,14 +25,20 @@ from accounts.forms import EmailValidationOnForgotPassword
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("cozylibrary.urls")),
-    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(form_class=EmailValidationOnForgotPassword), name='password_reset'),
+    path(
+        "accounts/password_reset/",
+        auth_views.PasswordResetView.as_view(
+            form_class=EmailValidationOnForgotPassword
+        ),
+        name="password_reset",
+    ),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),  # for login/logout
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-handler404 = 'cozylibrary.views.custom_page_not_found_view'
-handler500 = 'cozylibrary.views.custom_error_view'
-handler403 = 'cozylibrary.views.custom_permission_denied_view'
-handler400 = 'cozylibrary.views.custom_bad_request_view'
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+handler404 = "cozylibrary.views.custom_page_not_found_view"
+handler500 = "cozylibrary.views.custom_error_view"
+handler403 = "cozylibrary.views.custom_permission_denied_view"
+handler400 = "cozylibrary.views.custom_bad_request_view"
 
 # The URLs provided by auth are:
 

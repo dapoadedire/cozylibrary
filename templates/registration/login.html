@@ -1,13 +1,12 @@
 
 
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
   {% block title %}
     <title>Log In</title>
   {% endblock %}
   {% block content %}
-  <div class="container my-5">
-      <div class="text-center">
+  <div>
+      <div>
        <h2>Log In</h2>
        <form method="post">
         {% csrf_token %}

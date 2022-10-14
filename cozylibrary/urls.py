@@ -11,12 +11,11 @@ urlpatterns = [
     path("new/", views.BookCreateView.as_view(), name="create"),
     path("book/<slug:slug>/update/", views.BookUpdateView.as_view(), name="update"),
     path("book/<slug:slug>/delete/", views.BookDeleteView.as_view(), name="delete"),
-     path("search/", views.BookSearchView.as_view(), name="search"),
+    path("search/", views.BookSearchView.as_view(), name="search"),
     path("genre/<str:genre>/", views.BookGenreView.as_view(), name="genre"),
     path("profile/", views.ProfileView.as_view(), name="profile"),
     path("about/", views.AboutView.as_view(), name="about"),
 ]
-
 
 
 admin.site.site_header = "Cozy Library Dashboard"

@@ -11,6 +11,7 @@
             <a href="#">Hi {{ user.username }}!</a>
         </div>
         <div>
+            {% if books %}
             {% for book in books %}
             <div>
                 <a href="{{ book.get_absolute_url }}">
@@ -24,6 +25,10 @@
                 </a>
             </div>
             {% endfor %}
+
+            {% else %}
+            <p>No books found.</p>
+            {% endif %}
         </div>
         {% if is_paginated %}
         <nav>

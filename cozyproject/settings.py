@@ -26,12 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = config("SECRET_KEY", default = '^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*jdwu)r$0hd0#c%m')
+SECRET_KEY = config(
+    "SECRET_KEY", default="^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*jdwu)r$0hd0#c%m"
+)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default = True,  cast = bool)
+DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', 'cozylibrary.herokuapp.com', "127.0.0.1"]
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -46,12 +47,10 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "cozylibrary",
     "ckeditor",
-    'accounts',
-    'django_extensions',
-    'cloudinary',
-    
+    "accounts",
+    "django_extensions",
+    "cloudinary",
 ]
-
 
 
 MIDDLEWARE = [
@@ -134,11 +133,13 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -152,24 +153,12 @@ LOGOUT_REDIRECT_URL = "book:home"
 # Use one of the following to configure the email backend.
 
 
-
-cloudinary.config( 
-  cloud_name =config('CLOUD_NAME'), 
-  api_key = config('API_KEY'), 
-  api_secret =  config('API_SECRET'),
+cloudinary.config(
+    cloud_name=config("CLOUD_NAME"),
+    api_key=config("API_KEY"),
+    api_secret=config("API_SECRET"),
 )
 
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
-
-
-
-
-
-
-
-
-
-
-
