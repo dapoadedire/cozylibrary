@@ -104,24 +104,18 @@ class BookGenreView(LoginRequiredMixin, ListView):
         )
 
 
-class BookSearchView(ListView):
-    template_name = "book_search.html"
-    model = models.Book
 
+    
+class BookSearchView(ListView):
+    template_name = 'book_search.html'
+    model = models.Book 
     def get_queryset(self):  # new
         query = self.request.GET.get("search_query")
-        print(query)
-        if not query:
-            query = ""
-
-        search_result = models.Book.objects.filter(
-            Q(title__icontains=query)
-            | Q(author__icontains=query)
-            | Q(genre__icontains=query)
-            | Q(description__icontains=query)
+        object_list = models.Book.objects.filter(
+            Q(title__icontains=query) | Q(author__icontains=query) | Q(genre__icontains=query) | Q(description__icontains=query)
         )
-        print(search_result)
-        return search_result 
+        return object_list
+        
 
 class AboutView(View):
     def get(self, request):
