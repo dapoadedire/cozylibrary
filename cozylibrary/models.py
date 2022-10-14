@@ -41,7 +41,7 @@ class Book(models.Model):
     cover_image = CloudinaryField('cover_image',  blank=False, resource_type='image')
     created_at = models.DateTimeField(default=datetime.now, editable=False)
     book =CloudinaryField('book_file',  blank=False, resource_type='raw')
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="published")
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
     slug = models.SlugField(max_length=50, unique=True, editable=False)
 
     def __str__(self):

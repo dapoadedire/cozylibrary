@@ -5,30 +5,30 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container my-5 p-3">
-      <div class="card mb-3 mx-auto d-block" style="max-width: 1200px;">
-        <div class="row g-0 justify-content-center">
-          <div class="col-md-4">
-            <img src="{{ book.cover_image.url}}" class="img-fluid rounded-start mx-auto d-block p-2" alt="Cover photo" style="height: auto; width: 250px">
+    <div>
+      <div>
+        <div>
+          <div>
+            <img src="{{ book.cover_image.url}}">
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><a href="">{{ book.title }}</a></h5>
-              <p class="card-text">Author: {{ book.author }}</p>
-              <p class="card-text">Genre: {{ book.genre }}</p>
-              <p class="card-text">Description: {{ book.description | safe}}</p>
-              <p class="card-text">Language: {{ book.language }}</p>
-              <p class="card-text">Pages: {{ book.pages }}</p>
-              <p class="card-text">Year: {{ book.year }}</p>
-              <a href="{{ book.book.url }}" download><button type="submit" class="btn btn-success">Download</button></a>
+          <div>
+            <div>
+              <h5><a href="">{{ book.title }}</a></h5>
+              <p >Author: {{ book.author }}</p>
+              <p >Genre: {{ book.genre }}</p>
+              <p >Description: {{ book.description | safe}}</p>
+              <p >Language: {{ book.language }}</p>
+              <p >Pages: {{ book.pages }}</p>
+              <p >Year: {{ book.year }}</p>
+              <a href="{{ book.book.url }}" download><button type="submit">Download</button></a>
 
             </div>
           </div>
         </div>
         {% if user.is_superuser %}
-        <div class="text-center my-5">
-          <p><a href="{% url 'book:update' book.slug %}"><button type="submit" class="btn btn-success">Edit Book</button></a>
-          <a href="{% url 'book:delete' book.slug %}"><button type="submit" class="btn btn-danger">Delete Book</button></a></p>
+        <div>
+          <p><a href="{% url 'book:update' book.slug %}"><button type="submit">Edit Book</button></a>
+          <a href="{% url 'book:delete' book.slug %}"><button type="submit">Delete Book</button></a></p>
         </div>
       
         {% endif %}

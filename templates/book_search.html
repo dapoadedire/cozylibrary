@@ -6,26 +6,40 @@
 
 
   {% block content %}
-  <div class="container mb-5">
+  <div>
    
-        <div class="text-center my-3">
+        <div>
           <h2> Search results </h2>
         </div>
-            <div class="row justify-content-center gx-1 gy-3 border-top border-success border-4 pt-3">
+        
+            <div>
               {% for book in object_list %}
-            
-              <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+              {% if book %}
+              <div>
                 <a href="{{book.get_absolute_url}}">
-                <div class="card mx-auto d-block" style="width: 200px;">
-                    <img src="{{ book.cover_image.url}}" class="card-img-top rounded mx-auto d-block" alt="Cover photo" style="height: auto; width: 180px">
-                    <div class="card-body">
-                      <p class="card-text">{{ book.title }} | {{ book.author }}</p>
+                <div>
+                    <img src="{{ book.cover_image.url}}">
+                    <div>
+                      <p>{{ book.title }} | {{ book.author }}</p>
                     </div>
                 </div>
                 </a>
               </div>
+
+              {% else %}
+
+              <div>
+                <p> No results found </p>
+              </div>
+              {% endif %}
+
+
+
+              {% endfor %}
+            
+              
              
-               {% endfor %}
+               
           </div>
 
   </div>

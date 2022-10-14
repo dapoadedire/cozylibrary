@@ -14,7 +14,7 @@ Sign Up.
 
 Sign In and Sign Out.
 
-Reset and change password options
+Reset and change password options.
 
 
 ## Author
@@ -23,7 +23,7 @@ Reset and change password options
 
 
 
-## Environment Variables
+<!-- ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
@@ -43,9 +43,9 @@ To run this project, you will need to add the following environment variables to
 
 `EMAIL_USE_TLS`
 
-`EMAIL_TIMEOUT`
-
-Check [THIS](https://stackoverflow.com/a/62929967/16006603) out if you're unsure of how to set it up. 
+`EMAIL_TIMEOUT` -->
+<!-- 
+Check [THIS](https://stackoverflow.com/a/62929967/16006603) out if you're unsure of how to set it up.  -->
 ## Run Locally
 
 Clone the project
@@ -72,7 +72,7 @@ source venv/bin/activate
 Install Dependencies
 
 ```
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 Migrate Database 
 ```
@@ -99,7 +99,7 @@ Please adhere to this project's `code of conduct`.
 
 ## Tech Stack
 
-**Client:** HTML, CSS, BootstrapCSS, Javascript
+**Client:** HTML, CSS, Javascript
 
 **Server:** Django, SQL
 
@@ -108,7 +108,7 @@ Please adhere to this project's `code of conduct`.
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-
+<!-- 
 ## Screenshots
 
 
@@ -141,7 +141,7 @@ Please adhere to this project's `code of conduct`.
 
 ### Profile Page
 
-![image](https://user-images.githubusercontent.com/95668340/169708089-1d3d8554-ec90-408b-a483-8d92e6a4f546.png)
+![image](https://user-images.githubusercontent.com/95668340/169708089-1d3d8554-ec90-408b-a483-8d92e6a4f546.png) -->
 
 
 ## Support

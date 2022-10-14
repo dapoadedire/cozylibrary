@@ -30,7 +30,8 @@ SECRET_KEY = config("SECRET_KEY", default = '^b3tb3$$546!ao-%%rdbj9)&-$4+wj2y6n*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default = True,  cast = bool)
 
-ALLOWED_HOSTS = ['localhost', 'cozylibrary.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'cozylibrary.herokuapp.com', "127.0.0.1"]
+
 
 
 # Application definition
@@ -162,12 +163,8 @@ cloudinary.config(
 )
 
 
-
-
-
-
-
-
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 
 

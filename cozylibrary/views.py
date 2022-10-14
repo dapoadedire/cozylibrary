@@ -98,7 +98,8 @@ class AboutView(View):
         return render(request, "about.html")
 
 
-class ProfileView(View):
+class ProfileView(LoginRequiredMixin, View):
+    login_url = '/accounts/login/'
     def get(self, request):
         return render(request, "profile.html")
 

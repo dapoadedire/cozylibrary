@@ -14,15 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import include, path
+
+from accounts.forms import EmailValidationOnForgotPassword
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("cozylibrary.urls")),
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(form_class=EmailValidationOnForgotPassword), name='password_reset'),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),  # for login/logout
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

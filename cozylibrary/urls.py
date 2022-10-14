@@ -13,8 +13,8 @@ urlpatterns = [
     path("book/<slug:slug>/delete/", views.BookDeleteView.as_view(), name="delete"),
      path("search/", views.BookSearchView.as_view(), name="search"),
     path("genre/<str:genre>/", views.BookGenreView.as_view(), name="genre"),
-    path("about/", views.ProfileView.as_view(), name="profile"),
-    path("profile/", views.AboutView.as_view(), name="about"),
+    path("profile/", views.ProfileView.as_view(), name="profile"),
+    path("about/", views.AboutView.as_view(), name="about"),
 ]
 
 

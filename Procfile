@@ -1,4 +1,1 @@
-release: python manage.py makemigrations
-release: python manage.py collectstatic
-release: python manage.py migrate
-web: gunicorn cozyproject.wsgi --log-file --
+python manage.py collectstatic && python manage.py migrate && gunicorn cozyproject.wsgi --log-file -

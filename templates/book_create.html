@@ -1,19 +1,56 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block title %}
-    <title>Add New Book</title>
+<title>Add New Book</title>
 {% endblock title %}
 
 {% block content %}
-    <div class="container my-5">
-        <div class="text-center">
-            <h2>Add New Book</h2>
-        </div>
-        <form action="{% url 'book:create' %}" method="POST"  enctype="multipart/form-data" >{% csrf_token %}
-            {{ form|crispy }}
-            <div class="text-center my-3">
-                <button type="submit" class="btn btn-success">Add Book</button>
-            </div>
-        </form>
+<div>
+    <div>
+        <h2>Add New Book</h2>
     </div>
+    <form action="{% url 'book:create' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        {{ form.title.errors}}
+
+
+        {{ form.author.label_tag }}
+        {{ form.author }}
+        {{ form.author.errors}}
+
+        {{ form.genre.label_tag }}
+        {{ form.genre }}
+        {{ form.genre.errors}}
+
+        {{ form.year.label_tag }}
+        {{ form.year }}
+        {{ form.year.errors}}
+
+        {{ form.language.label_tag }}
+        {{ form.language }}
+        {{ form.language.errors}}
+
+        {{ form.description.label_tag }}
+        {{ form.description }}
+        {{ form.description.errors}}
+
+        {{ form.cover_image.label_tag }}
+        {{ form.cover_image }}
+        {{ form.cover_image.errors}}
+
+        {{ form.book.label_tag }}
+        {{ form.book }}
+        {{ form.book.errors}}
+
+
+
+
+
+        <div>
+            <button type="submit">Add Book</button>
+        </div>
+    </form>
+</div>
 {% endblock content %}
