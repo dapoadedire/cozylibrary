@@ -76,7 +76,8 @@ pip install -r requirements.txt
 ```
 Migrate Database 
 ```
-python manage.py migrate
+python manage.py migrate accounts
+python manage.py migrate cozylibrary
 ```
 Create Super User 
 ```
