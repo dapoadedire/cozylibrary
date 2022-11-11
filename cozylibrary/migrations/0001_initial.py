@@ -69,7 +69,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(default=datetime.datetime.now, editable=False),
+                    models.DateTimeField(
+                        default=datetime.datetime.now, editable=False),
                 ),
                 (
                     "book",
@@ -80,7 +81,8 @@ class Migration(migrations.Migration):
                 (
                     "status",
                     models.CharField(
-                        choices=[("draft", "Draft"), ("published", "Published")],
+                        choices=[("draft", "Draft"),
+                                 ("published", "Published")],
                         default="draft",
                         max_length=10,
                     ),
