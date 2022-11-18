@@ -38,10 +38,12 @@ class Book(models.Model):
     year = models.IntegerField(default=0)
     language = models.CharField(max_length=255, default="English")
     description = RichTextField(max_length=1000, blank=True)
-    cover_image = CloudinaryField("cover_image", blank=False, resource_type="image")
+    cover_image = CloudinaryField(
+        "cover_image", blank=False, resource_type="image")
     created_at = models.DateTimeField(default=timezone.now, editable=False)
     book = CloudinaryField("book_file", blank=False, resource_type="raw")
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES, default="draft")
     slug = models.SlugField(max_length=15, unique=True, editable=False)
 
     # def __str__(self):
