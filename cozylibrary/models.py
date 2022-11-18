@@ -44,8 +44,8 @@ class Book(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
     slug = models.SlugField(max_length=15, unique=True, editable=False)
 
-    def __str__(self):
-        return f"{self.title } by  { self.author}"
+    # def __str__(self):
+    #     return f"{self.title } by  { self.author}"
 
     class Meta:
         ordering = ("-created_at",)

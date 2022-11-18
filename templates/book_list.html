@@ -5,21 +5,31 @@
 {% endblock title %}
 
 {% block content %}
-    <div>
-        <div>
-            <h2>Personally recommended({{ books.count }} books).</h2>
-            <a href="#">Hi {{ user.username }}!</a>
-        </div>
-        <div>
+    <section>
+        <section class="hero">
+<h2 class="hero-title">COZY LIBRARY</h2>
+            
+                <form class="hero-form" method="get" action="{% url 'book:search' %}">
+                    <input name="search_query" type="text" placeholder="Search books ..." required >
+                    <button type="submit">Search</button>
+                  </form>
+           
+        </section>
+            
+ 
+    
+        <div class="book-container">
+
             {% if books %}
+            <h2 class="book-heading">Recommended Books</h2>
             {% for book in books %}
-            <div>
+            
+            <div class="book">
                 <a href="{{ book.get_absolute_url }}">
                 <div>
                     <img src="{{ book.cover_image.url}}" >
                     <div >
-                      <p >{{ book.title }} | {{ book.author }}</p>
-                      <p >Genre: {{ book.genre }}</p>
+                      <p >{{ book.title }} by {{ book.author }}</p>
                     </div>
                 </div>
                 </a>
@@ -45,7 +55,7 @@
             </ul>
         </nav>
         {% endif %}
-    </div>
+    </section>
     
 {% endblock content %}
 

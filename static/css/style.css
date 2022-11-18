@@ -1,2 +1,146 @@
+:root {
+  --color-primary: #f00;
+  --color-secondary: #0f0;
+  --color-tertiary: #00f;
+}
 
+
+
+
+
+
+body{
+  display: grid;
+  /* justify-content: center; */
+}
+
+.wrapper{
+  max-width: 1500px;
+  width: 90%;
+  justify-self: center;
+}
+
+header{
+  min-height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.438);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+
+img {
+  display: block;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+nav{
+  display: flex;
   
+}
+
+nav input[type="text"]{
+  height: 100%;
+}
+
+nav button[type="submit"]{
+  height: 100%;
+  border: 1ps solid black;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+nav ul{
+  display: inline-flex;
+}
+
+nav ul li{
+  margin-left: 2em;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  
+}
+
+nav form{
+  margin-left: 2em;
+}
+
+.book-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  /* grid-template-rows: repeat(1, 1fr); */
+  /* grid-auto-flow: 1fr; */
+  gap: 2em;
+}
+
+.book-container .book-heading{
+  grid-column: 1/-1;
+  place-self: center;
+  font-size: 3em;
+}
+
+.book{
+ border: 1px solid rgba(80, 88, 94, 0.664);
+  padding: 1em;
+  background-color: rgba(218, 218, 218, 0.288);
+}
+
+.hero{
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  place-items: center;
+  row-gap: 2em;
+  margin: 3em 0;
+  padding: 3em 0;
+}
+
+.hero >*{
+  grid-column: 2/3;
+
+}
+
+
+.hero-title{
+  font-size: clamp(3em, 10vw, 6em);
+}
+
+
+.hero-form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+  border: 1px solid rgb(80, 88, 94);
+}
+
+.hero-form input{
+  flex: 1;
+  height: 4em;
+  border: 1px solid rgb(80, 88, 94);
+  font-size: 1em;
+  padding-left: 1em;
+ 
+}
+
+.hero-form button{
+  border: 1px solid rgb(80, 88, 94);
+  margin-left: 1em;
+  width: 10em;
+  height: 4em;
+  cursor: pointer;
+}
+
+.hero-form button:focus{
+  outline: none;
+}
