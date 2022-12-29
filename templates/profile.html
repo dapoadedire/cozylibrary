@@ -1,25 +1,21 @@
-{% extends 'base.html' %}
-
-  {% block title %}
-    <title>Cozy Library</title>
-  {% endblock %}
-  {% block content %}
+{% extends 'base.html' %} {% block title %}
+<title>Cozy Library</title>
+{% endblock %} {% block content %}
+<div>
   <div>
-      <div>
-        <h2>User Profile</h2>
-      </div>
-    <div>
-        {% if user.is_authenticated %}
-        <p>Hi, {{ user.username }}!</p>
-        <a href="{% url 'logout' %}">Sign Out</a>
-        <a href="{% url 'password_reset' %}">Reset Password</a>
-        <a href="{% url 'password_change' %}">Change Password</a>
-        {% else %}
-        <a href="#">You are not logged in!</a>
-        <a href="{% url 'login' %}">Sign In</a>
-        <a href="{% url 'signup' %}">Sign Up</a>
-        {% endif %}
-      </div> 
-      
+    <h2>User Profile</h2>
   </div>
-  {% endblock %}
+  <div>
+    {% if user.is_authenticated %}
+    <p>Hi, {{ user.username }}!</p>
+    <a href="{% url 'logout' %}">Sign Out</a>
+    <a href="{% url 'password_reset' %}">Reset Password</a>
+    <a href="{% url 'password_change' %}">Change Password</a>
+    {% else %}
+    <a href="#">You are not logged in!</a>
+    <a href="{% url 'login' %}">Sign In</a>
+    <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -16,12 +16,9 @@ Sign In and Sign Out.
 
 Reset and change password options.
 
-
 ## Author
 
 - [@dapo_adedire](https://www.twitter.com/dapo_adedire)
-
-
 
 <!-- ## Environment Variables
 
@@ -44,8 +41,9 @@ To run this project, you will need to add the following environment variables to
 `EMAIL_USE_TLS`
 
 `EMAIL_TIMEOUT` -->
-<!-- 
+<!--
 Check [THIS](https://stackoverflow.com/a/62929967/16006603) out if you're unsure of how to set it up.  -->
+
 ## Run Locally
 
 Clone the project
@@ -60,11 +58,14 @@ Go to the project directory
   cd cozylibrary
 ```
 
-Create a Virtual Environment 
+Create a Virtual Environment
+
 ```
 python -m virtualenv venv
 ```
+
 Activate Virtual Environment
+
 ```
 source venv/bin/activate
 ```
@@ -74,16 +75,22 @@ Install Dependencies
 ```
 pip install -r requirements.txt
 ```
-Migrate Database 
+
+Migrate Database
+
 ```
 python manage.py migrate accounts
 python manage.py migrate cozylibrary
 ```
-Create Super User 
+
+Create Super User
+
 ```
 python manage.py createsuperuser
 ```
+
 Finally, Start The Server.
+
 ```
 python manage.py runserver
 ```
@@ -96,20 +103,17 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-
-
 ## Tech Stack
 
 **Client:** HTML, CSS, Javascript
 
 **Server:** Django, SQL
 
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-<!-- 
+<!--
 ## Screenshots
 
 
@@ -144,9 +148,7 @@ Please adhere to this project's `code of conduct`.
 
 ![image](https://user-images.githubusercontent.com/95668340/169708089-1d3d8554-ec90-408b-a483-8d92e6a4f546.png) -->
 
-
 ## Support
 
 For support, email adedireadedapo19@gmail.com or send a Twitter DM @ twitter.com/dapo_adedire.
 Also, this project needs a star from you.
-

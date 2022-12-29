@@ -1,36 +1,20 @@
-{% extends 'base.html' %}
-{% block title %}
+{% extends 'base.html' %} {% block title %}
 <title>Sign Up</title>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container my-5">
   <div class="text-center">
     <h2>Sign Up</h2>
     <form method="post">
       {% csrf_token %}
-      <div>
-        {{ form.username.label_tag }} {{ form.username }}
-      </div>
-      <div>
-        {{ form.email.label_tag }} {{ form.email }}
-      </div>
-      <div>
-        {{ form.password1.label_tag }} {{ form.password1 }}
-      </div>
-      <div>
-        {{ form.password2.label_tag }} {{ form.password2 }}
-      </div>
-      <div>
-        {{ form.errors }}
-      </div>
+      <div>{{ form.username.label_tag }} {{ form.username }}</div>
+      <div>{{ form.email.label_tag }} {{ form.email }}</div>
+      <div>{{ form.password1.label_tag }} {{ form.password1 }}</div>
+      <div>{{ form.password2.label_tag }} {{ form.password2 }}</div>
+      <div>{{ form.errors }}</div>
 
-
-      <input type="submit" value="Sign Up"/>
-
+      <input type="submit" value="Sign Up" />
     </form>
   </div>
   <a href="{% url 'login' %}">Login</a>
-
-
 </div>
 {% endblock %}

@@ -1,40 +1,28 @@
-
-
-{% extends 'base.html' %}
-  {% block title %}
-    <title>Log In</title>
-  {% endblock %}
-  {% block content %}
+{% extends 'base.html' %} 
+{% block title %}
+<title>Log In</title>
+{% endblock %} {% block content %}
+<div>
   <div>
-      <div>
-       <h2>Log In</h2>
-       <form method="post">
-        {% csrf_token %}
-      
-        <div class="field-errors">
-          {{ form.non_field_errors }}
-        </div>
-        <div class="username-errors">
-          {{ form.username.errors }}
-        </div>
-      
-       <div class="username">
-          {{ form.username.label_tag }} {{ form.username }}
-        </div>
-        <div class="password-errors">
-          {{ form.password.errors }}
-        </div>
-        <div class="password">
-          {{ form.password.label_tag }} {{ form.password }}
-        </div>
-        <div class="button-wrapper">
-            <input type="submit" value="Log In"/>
-          </div>
-    </form>
+    <h2>Log In</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="field-errors">{{ form.non_field_errors }}</div>
+      <div class="username-errors">{{ form.username.errors }}</div>
+
+      <div class="username">
+        {{ form.username.label_tag }} {{ form.username }}
       </div>
-      <a href="{% url 'accounts:signup' %}">Sign Up</a>
-      <a href="{% url 'password_reset' %}">Reset Password</a>
-     
-      
+      <div class="password-errors">{{ form.password.errors }}</div>
+      <div class="password">
+        {{ form.password.label_tag }} {{ form.password }}
+      </div>
+      <div class="button-wrapper">
+        <input type="submit" value="Log In" />
+      </div>
+    </form>
   </div>
-  {% endblock %}
+  <a href="{% url 'accounts:signup' %}">Sign Up</a>
+  <a href="{% url 'password_reset' %}">Reset Password</a>
+</div>
+{% endblock %}

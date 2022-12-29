@@ -1,61 +1,55 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}
+<title>Cozy Library -Home</title>
+{% endblock title %} {% block content %}
+<section>
+  <section class="hero">
+    <h2 class="hero-title">COZY LIBRARY</h2>
 
-{% block title %}
-    <title>Cozy Library -Home</title>
-{% endblock title %}
+    <form class="hero-form" method="get" action="{% url 'book:search' %}">
+      <input
+        name="search_query"
+        type="text"
+        placeholder="Search books ..."
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+  </section>
 
-{% block content %}
-    <section>
-        <section class="hero">
-<h2 class="hero-title">COZY LIBRARY</h2>
-            
-                <form class="hero-form" method="get" action="{% url 'book:search' %}">
-                    <input name="search_query" type="text" placeholder="Search books ..." required >
-                    <button type="submit">Search</button>
-                  </form>
-           
-        </section>
-            
- 
-    
-        <div class="book-container">
+  <div class="book-container">
+    {% if books %}
+    <h2 class="book-heading">Recommended Books</h2>
+    {% for book in books %}
 
-            {% if books %}
-            <h2 class="book-heading">Recommended Books</h2>
-            {% for book in books %}
-            
-            <div class="book">
-                <a href="{{ book.get_absolute_url }}">
-                <div>
-                    <img src="{{ book.cover_image.url}}" >
-                    <div >
-                      <p >{{ book.title }} by {{ book.author }}</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            {% endfor %}
-
-            {% else %}
-            <p>No books found.</p>
-            {% endif %}
+    <div class="book">
+      <a href="{{ book.get_absolute_url }}">
+        <div>
+          <img src="{{ book.cover_image.url}}" />
+          <div>
+            <p>{{ book.title }} by {{ book.author }}</p>
+          </div>
         </div>
-        {% if is_paginated %}
-        <nav>
-            <ul>
-                {% if page_obj.has_previous %}
-                    <li><a href="?page=1" >First</a></li>
-                    <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-                {% endif %}
-                <li><a href="#">{{ page_obj.number }}</a></li>
-                {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
-                    <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %}
-    </section>
-    
-{% endblock content %}
+      </a>
+    </div>
+    {% endfor %} {% else %}
+    <p>No books found.</p>
+    {% endif %}
+  </div>
+  {% if is_paginated %}
+  <nav>
+    <ul>
+      {% if page_obj.has_previous %}
+      <li><a href="?page=1">First</a></li>
+      <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      <li><a href="#">{{ page_obj.number }}</a></li>
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+      <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</section>
 
+{% endblock content %}

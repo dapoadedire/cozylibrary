@@ -1,25 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}
+<title>Delete- {{ book.title }}</title>
+{% endblock title %} {% block content %}
+<div>
+  <div>
+    <h2>Delete Book</h2>
 
-{% block title %}
-    <title>Delete- {{ book.title }}</title>
-{% endblock title %}
-
-{% block content %}
+    <p>Are you sure you want to delete {{ book.title }} by {{book.author }}?</p>
     <div>
-        <div>
-            <h2>Delete Book</h2>
-            
-                <p>Are you sure you want to delete {{ book.title }} by {{book.author }}?</p>
-                <div>
-                    <form action="{% url 'book:delete' %}" method="POST">{% csrf_token %}
-                    <button type="submit" >Yes, delete!</button>
-                </form>
-                    <a href="{{book.get_absolute_url}}">
-                        <button type="submit">No, go back.</button>
-                    </a>
-                </div>
-           
-
-        </div>
+      <form action="{% url 'book:delete' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete!</button>
+      </form>
+      <a href="{{book.get_absolute_url}}">
+        <button type="submit">No, go back.</button>
+      </a>
     </div>
+  </div>
+</div>
 {% endblock content %}

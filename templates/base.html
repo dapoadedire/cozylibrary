@@ -2,104 +2,87 @@
 
 {% load static %}
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+    {% block title %}
+    <title>CozyLibrary</title>
+    {% endblock title %}
+  </head>
 
-  {% block title %}
-  <title>CozyLibrary</title>
-  {% endblock title %}
-</head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="logo">
+          <a href="{% url 'book:home' %}">
+            <h2>Cozy Library</h2>
+          </a>
+        </div>
 
-<body>
-  <div class="wrapper">
-  <header>
-    <div class="logo">
-      <a href="{% url 'book:home' %}">
-        <h2>Cozy Library</h2>
-      </a>
+        <nav>
+          <ul>
+            {% if user.is_superuser %}
+            <li>
+              <a href="{% url 'book:create' %}">Add Book</a>
+            </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'book:about' %}">About</a>
+            </li>
 
+            <li>
+              <a href="{% url 'book:profile' %}">Profile</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li>
+              <a href="{% url 'login' %}">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'accounts:signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <form method="get" action="{% url 'book:search' %}">
+            <input
+              name="search_query"
+              type="text"
+              placeholder="Search books ..."
+              required
+            />
+            <button type="submit">Search</button>
+          </form>
+        </nav>
+      </header>
+
+      <main>{% block content %} {% endblock content %}</main>
+
+      <footer>
+        <hr />
+        <p>Cozy Library &copy; 2020</p>
+      </footer>
     </div>
-
-    <nav>
-      <ul>
-        {% if user.is_superuser %}
-        <li>
-          <a href="{% url 'book:create' %}">Add Book</a>
-        </li>
-        {% endif %}
-        <li>
-          <a href="{% url 'book:about' %}">About</a>
-        </li>
-
-        <li>
-          <a href="{% url 'book:profile' %}">Profile</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <li>
-          <a href="{% url 'login' %}">Login</a>
-        </li>
-        <li>
-          <a href="{% url 'accounts:signup' %}">Sign Up</a>
-        </li>
-        {% endif %}
-
-
-      </ul>
-
-      <form method="get" action="{% url 'book:search' %}">
-        <input name="search_query" type="text" placeholder="Search books ..." required>
-        <button type="submit">Search</button>
-      </form>
-      
-    </nav>
-  </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <main>
-    {% block content %}
-    {% endblock content %}
-  </main>
-
-  <footer>
-    <hr>
-    <p>Cozy Library &copy; 2020</p>
-  </footer>
-</div>
-  <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
-  <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-</body>
+    <script
+      type="text/javascript"
+      src="{% static 'ckeditor/ckeditor-init.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"
+    ></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+  </body>
 </html>
